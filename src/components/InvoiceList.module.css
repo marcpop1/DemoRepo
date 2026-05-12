@@ -1,0 +1,87 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  height: 100%;
+  overflow-y: auto;
+}
+
+.heading {
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 1rem;
+  margin: 0;
+  border-bottom: 1px solid #e5e7eb;
+  background: #f9fafb;
+  position: sticky;
+  top: 0;
+}
+
+.invoiceRow {
+  display: grid;
+  grid-template-columns: 80px 1fr 90px 80px 60px;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid #e5e7eb;
+  cursor: pointer;
+  transition: background 0.1s;
+}
+
+.invoiceRow:hover {
+  background: #f3f4f6;
+}
+
+.selected {
+  background: #eff6ff;
+  border-left: 3px solid #3b82f6;
+}
+
+.invoiceId {
+  font-size: 0.75rem;
+  color: #6b7280;
+  font-family: monospace;
+}
+
+.clientName {
+  font-weight: 500;
+  font-size: 0.875rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.date {
+  font-size: 0.75rem;
+  color: #6b7280;
+}
+
+.total {
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-align: right;
+}
+
+.status {
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  padding: 2px 6px;
+  border-radius: 4px;
+  text-align: center;
+}
+
+.draft {
+  background: #f3f4f6;
+  color: #6b7280;
+}
+
+.sent {
+  background: #dbeafe;
+  color: #1d4ed8;
+}
+
+.paid {
+  background: #d1fae5;
+  color: #065f46;
+}

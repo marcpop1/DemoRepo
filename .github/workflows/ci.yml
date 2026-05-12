@@ -1,0 +1,37 @@
+name: CI
+
+on:
+  push:
+    branches: ["*"]
+  pull_request:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Type check
+        run: npx tsc --noEmit
+
+      - name: Run tests
+        run: npx vitest run
+
+      - name: Check minimum commit count
+        run: |
+          COMMIT_COUNT=$(git log --oneline | wc -l)
+          echo "Commit count: $COMMIT_COUNT"
+          if [ "$COMMIT_COUNT" -lt 4 ]; then
+            echo "❌ At least 4 commits required (one per bug fix + one for the feature)"
+            exit 1
+          fi

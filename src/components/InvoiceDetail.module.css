@@ -1,0 +1,127 @@
+.container {
+  padding: 1.5rem;
+  height: 100%;
+  overflow-y: auto;
+}
+
+.empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: #9ca3af;
+  font-size: 0.875rem;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.invoiceId {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 0 0 0.25rem;
+  font-family: monospace;
+}
+
+.date {
+  margin: 0;
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+
+.status {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 6px;
+}
+
+.draft {
+  background: #f3f4f6;
+  color: #6b7280;
+}
+
+.sent {
+  background: #dbeafe;
+  color: #1d4ed8;
+}
+
+.paid {
+  background: #d1fae5;
+  color: #065f46;
+}
+
+.clientSection {
+  margin-bottom: 1.5rem;
+}
+
+.clientSection h3,
+.lineItemsSection h3 {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #6b7280;
+  margin: 0 0 0.5rem;
+}
+
+.clientName {
+  font-weight: 600;
+  margin: 0 0 0.125rem;
+}
+
+.clientEmail {
+  font-size: 0.875rem;
+  color: #6b7280;
+  margin: 0;
+}
+
+.lineItemsSection {
+  margin-bottom: 1.5rem;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+}
+
+.table th {
+  text-align: left;
+  padding: 0.5rem 0.75rem;
+  background: #f9fafb;
+  font-weight: 600;
+  font-size: 0.75rem;
+  color: #6b7280;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.table td {
+  padding: 0.625rem 0.75rem;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.table tfoot td {
+  border-top: 2px solid #e5e7eb;
+  border-bottom: none;
+  padding-top: 0.75rem;
+}
+
+.totalLabel {
+  text-align: right;
+  font-weight: 600;
+  color: #6b7280;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+}
+
+.totalValue {
+  font-weight: 700;
+  font-size: 1rem;
+}
