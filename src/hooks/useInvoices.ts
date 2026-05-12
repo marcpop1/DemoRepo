@@ -9,9 +9,13 @@ interface InvoicesState {
 }
 
 export function useInvoices() {
-  const [state, setState] = useState<InvoicesState>({
-    invoices: data.invoices as Invoice[],
-    clients: data.clients as Client[]
+  const [state, setState] = useState<InvoicesState>(() => {
+    const savedInvoices = localStorage.getItem('invoices')
+    const initialInvoices = savedInvoices ? JSON.parse(savedInvoices) : data.invoices
+    return {
+      invoices: initialInvoices as Invoice[],
+      clients: data.clients as Client[]
+    }
   })
 
   const getClientForInvoice = (invoiceIndex: number): Client => {
@@ -26,6 +30,7 @@ export function useInvoices() {
       if (invoiceIndex >= 0) {
         updated[invoiceIndex] = { ...updated[invoiceIndex], status: "paid" }
       }
+      localStorage.setItem('invoices', JSON.stringify(updated))
       return { ...prev, invoices: updated }
     })
   }

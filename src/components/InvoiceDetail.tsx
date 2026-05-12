@@ -27,7 +27,17 @@ export function InvoiceDetail({ invoice, client, invoiceIndex, markAsPaid }: Pro
           <h2 className={styles.invoiceId}>{invoice.id}</h2>
           <p className={styles.date}>{invoice.date}</p>
         </div>
-        <span className={`${styles.status} ${styles[invoice.status]}`}>{invoice.status}</span>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+          {invoice.status !== 'paid' && (
+            <button 
+              onClick={() => markAsPaid(invoice.id)}
+              style={{ padding: '0.5rem 1rem', cursor: 'pointer' }}
+            >
+              Mark as Paid
+            </button>
+          )}
+          <span className={`${styles.status} ${styles[invoice.status]}`}>{invoice.status}</span>
+        </div>
       </div>
 
       <div className={styles.clientSection}>
