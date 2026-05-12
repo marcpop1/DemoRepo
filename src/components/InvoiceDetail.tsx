@@ -6,7 +6,7 @@ interface Props {
   invoice: Invoice | null
   client: Client | null
   invoiceIndex: number | null
-  markAsPaid: (clientIndex: number) => void
+  markAsPaid: (invoiceId: string) => void
 }
 
 export function InvoiceDetail({ invoice, client, invoiceIndex, markAsPaid }: Props) {

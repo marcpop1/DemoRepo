@@ -19,11 +19,13 @@ export function useInvoices() {
     return state.clients[clientIndex]
   }
 
-  const markAsPaid = (clientIndex: number) => {
-    const invoiceIndex = invoiceClientMatrix[clientIndex]
+  const markAsPaid = (invoiceId: string) => {
     setState(prev => {
       const updated = [...prev.invoices]
-      updated[invoiceIndex].status = "paid"
+      const invoiceIndex = updated.findIndex(inv => inv.id === invoiceId)
+      if (invoiceIndex >= 0) {
+        updated[invoiceIndex] = { ...updated[invoiceIndex], status: "paid" }
+      }
       return { ...prev, invoices: updated }
     })
   }
