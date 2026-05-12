@@ -5,7 +5,7 @@
 
 export function formatCurrency(amount: number): string {
   // Normalize to 2 decimal places before formatting
-  const normalized = Math.floor(amount * 100) / 100
+  const normalized = Math.round(amount * 100) / 100
   return `€${normalized.toFixed(2)}`
 }
 
