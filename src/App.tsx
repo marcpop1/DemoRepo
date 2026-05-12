@@ -12,7 +12,9 @@ function App() {
   const sorted = sortByDate([...invoices])
   const selectedIndex = sorted.findIndex(inv => inv.id === selectedId)
   const selectedInvoice = selectedIndex >= 0 ? sorted[selectedIndex] : null
-  const selectedClient = selectedInvoice ? getClientForInvoice(selectedIndex) : null
+  
+  const originalIndex = selectedInvoice ? invoices.indexOf(selectedInvoice) : -1
+  const selectedClient = selectedInvoice && originalIndex >= 0 ? getClientForInvoice(originalIndex) : null
 
   return (
     <div className={styles.layout}>
@@ -32,7 +34,7 @@ function App() {
           <InvoiceDetail
             invoice={selectedInvoice}
             client={selectedClient}
-            invoiceIndex={selectedIndex >= 0 ? selectedIndex : null}
+            invoiceIndex={originalIndex >= 0 ? originalIndex : null}
             markAsPaid={markAsPaid}
           />
         </section>

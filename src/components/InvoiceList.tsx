@@ -17,7 +17,8 @@ export function InvoiceList({ invoices, selectedId, getClientForInvoice, onSelec
     <div className={styles.container}>
       <h2 className={styles.heading}>Invoices</h2>
       {sorted.map((invoice, index) => {
-        const client = getClientForInvoice(index)
+        const originalIndex = invoices.indexOf(invoice)
+        const client = getClientForInvoice(originalIndex)
         const total = calculateTotal(invoice.lineItems)
         return (
           <div
